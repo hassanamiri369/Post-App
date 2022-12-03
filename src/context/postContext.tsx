@@ -23,8 +23,12 @@ type IAction = |
     {type : "editPost" , payload : IPost[]}
 
 
+interface IContext {
+    state : IState,
+    dispatch :  React.Dispatch<IAction>
+}
 
-export const PostContext = createContext<any>([])
+export const PostContext = createContext<IContext>({} as IContext)
 
 
 const initState = {

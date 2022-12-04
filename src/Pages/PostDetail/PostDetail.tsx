@@ -1,5 +1,5 @@
 import React , {useContext , useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getPostById } from '../../api/api'
 import { IPost, PostContext } from '../../context/postContext'
 
@@ -9,10 +9,10 @@ const PostDetail = () => {
     const navigate = useNavigate()
 
     const context = useContext(PostContext)
-    const {deletePost} = context
+    const {deletePost  } = context
 
-    const [postDetail , setPostDetail] = useState<IPost | null | undefined >(null)
-    console.log(postDetail)
+    const [postDetail , setPostDetail] = useState<any>(null)
+    // console.log(postDetail)
 
     React.useEffect(()=>{
         const getByID = async ()=>{
@@ -44,6 +44,7 @@ const PostDetail = () => {
                 navigate("/post")
               
             }}>delete</button>
+            <button><Link to={"/edit"} state={postDetail} >Edit</Link></button>
             <button onClick={()=> navigate("/post")}>go back</button>
 
         </div>

@@ -5,6 +5,7 @@ import App from './App';
 import PostContextProvider from './context/postContext';
 import { BrowserRouter } from 'react-router-dom';
 
+document.title = "Post App"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

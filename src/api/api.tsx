@@ -1,8 +1,6 @@
-import React , {useEffect} from "react"
 import axios from "axios"
 
-
-const api = axios.create({
+export const api = axios.create({
     baseURL : "http://localhost:3004"
 })
 
@@ -12,10 +10,20 @@ export const getPost = async()=>{
     return data
 }
 
-export const getPostById = (id : number)=>{}
+export const getPostById = (id : number)=>{
+    const response = api.get(`/posts/${id}`)
+    return response
+}
 
 
-export const deletePost = (id : number) =>{}
+// export const deletePost = (id : number) =>{
+//     const response = api.delete(`/posts/${id}`)
+    
+// }
 
-
+// export const AddNewPost = async(newPost : IPost) => {
+//     const {dispatch} = useContext(PostContext)
+//     const response = await api.post("/posts" , newPost)
+//     return dispatch({type : "addPost" , payload : response.data})
+// }
 export const editPost =(id : number , updateData : any )=>{}

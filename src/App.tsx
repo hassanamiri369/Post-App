@@ -7,6 +7,7 @@ import Header from './Layout/Headr/Header';
 import About from './Pages/About/About';
 import AddPost from './Pages/AddPost/AddPost';
 import EditPost from './Pages/EditPost/EditPost';
+import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import PostDetail from './Pages/PostDetail/PostDetail';
 import PostsList from './Pages/Posts/PostsList';
@@ -32,6 +33,7 @@ function App() {
 
       <div className='main'>
         <Routes>
+          <Route path='/' element={<Home/>}/>
           <Route path="/post" >
             <Route index element={<PostsList/>}/>
             <Route path='/post/:id' element={<PostDetail/>}/>

@@ -2,6 +2,7 @@ import React , {useState , useEffect , useContext} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { IPost, PostContext } from '../../context/postContext'
 
+import "./Style.css"
 const EditPost = () => {
 
 
@@ -13,6 +14,7 @@ const EditPost = () => {
     const [titleEdit , setTitleEdit]= useState("")
     const [desEdit , setDesEdit] = useState("")
     const [categoryEdit , setCategoryEdit] = useState("")
+    // const [imageEidt , setImageEdit] = useState("")
 
 
     const context = useContext(PostContext)
@@ -27,6 +29,7 @@ const EditPost = () => {
       setTitleEdit(location.state.title)
       setDesEdit(location.state.description )
       setCategoryEdit(location.state.category)
+      // setImageEdit(location.state.image)
     } , [location.state.id])
 
     
@@ -36,20 +39,19 @@ const EditPost = () => {
 
     const handleEditPost = (e : React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      const updateEditPost : IPost = {id : location.state.id , title : titleEdit , description : desEdit , category : categoryEdit}
+      const updateEditPost : IPost = {id : location.state.id , title : titleEdit , description : desEdit , category : categoryEdit }
       editPost(location.state.id , updateEditPost )
       setTitleEdit("")
       setDesEdit("")
       setCategoryEdit("")
+      // setImageEdit('')
       navigate(`/post`)
     }
     return (
-        <div>
+        <div className='editPost-container'>
             <h1>Edit Post</h1>
-
-        <h1>Add Post</h1>
-        <div>
-          <form onSubmit={(e)=> handleEditPost(e)}>
+       
+          <form className='form-data ' onSubmit={(e)=> handleEditPost(e)}>
             <div className='title'>
               <label>Title</label>
               <input type={'text'} value={titleEdit} placeholder="title" onChange={(e)=> setTitleEdit(e.target.value)}/>
@@ -60,7 +62,14 @@ const EditPost = () => {
               <textarea value={desEdit} onChange={(e)=> setDesEdit(e.target.value)}></textarea>
             </div>
 
-            <div>
+
+            {/* <div className='image'>
+              <label>Label</label>
+              <input type={'file'} placeholder="image" value={imageEidt} onChange={(e)=> setImageEdit(e.target.value)}/>
+            </div> */}
+
+            <div className='select'>
+              <label>Category</label>
               <select value={categoryEdit} onChange={(e)=> setCategoryEdit(e.target.value)}>
                 <option value={'IT'}>IT</option>
                 <option value={'medical'}>medical</option>
@@ -69,11 +78,11 @@ const EditPost = () => {
             </div>
 
             <div className='buttons'>
-              <button type='submit' className='update' >upDate</button>
+              <button type='submit' className='create' >upDate</button>
               <button className='cancel' onClick={()=> navigate("/post")}>cancel</button>
             </div>
           </form>
-        </div>
+       
     </div>
     )
 }

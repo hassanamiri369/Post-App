@@ -1,0 +1,98 @@
+.PostDetail-container{
+    /* background-color: aqua; */
+    padding: 40px;
+
+}
+.categories-title{
+    /* background-color: red; */
+    height: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.category-title{
+    /* border: 1px solid gray; */
+    padding: 4px 20px;
+    border-radius: 10px;
+    background-color: rgb(2, 2, 219);
+    
+    color: #fff;
+}
+
+.button-detail{
+    /* background-color: red; */
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* border-bottom: 1px solid gray; */
+}
+.detail-title{
+    border-bottom: 1px solid gray;
+    width: 300px;
+    padding-bottom: 20px;
+}
+
+.button-detail a{
+    padding: 10px 40px;
+    border: 1px solid rgb(27, 133, 36);
+    border-radius: 6px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: rgb(27, 133, 36);
+    transition: background 0.2s ease;
+}
+
+.button-detail a:hover{
+    color: white;
+    background-color: rgb(27, 133, 36);
+}
+
+
+.button-detail button{
+    transition: background 0.2s ease;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 6px;
+    margin-left: 30px;
+    font-size: 16px;
+    border: 1px solid red;
+    color: white;
+    background-color:red;
+    cursor: pointer;
+    
+    
+}
+
+.button-detail button:hover{
+    border: 1px solid red;
+    color: red;
+    background-color: white;
+}
+
+.button-detail .goBack{
+    transition: background 0.2s ease;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 6px;
+    margin-left: 30px;
+    font-size: 16px;
+    border: 1px solid indigo;
+    color: white;
+    background-color:indigo;
+    cursor: pointer;
+}
+
+.button-detail .goBack:hover{
+    border: 1px solid indigo;
+    color: indigo;
+    background-color: white;
+}
+
+.description-title{
+    word-spacing: 5px;
+    line-height: 35px;
+    font-size: 17px;
+    color: gray;
+}

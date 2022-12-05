@@ -3,11 +3,15 @@ import React , {useState , useContext } from 'react'
 import {useNavigate} from "react-router-dom"
 import { IPost, PostContext } from '../../context/postContext'
 
+// style
+import "./Style.css"
+
+
 const AddPost = () => {
   const [title , setTitle] = useState("")
   const [description , setDescription ] = useState("")
   const [category , setCategory] = useState("")
-
+ 
   const {AddNewPost} = useContext(PostContext)
 
   const navigate = useNavigate()
@@ -15,7 +19,7 @@ const AddPost = () => {
 
   const handlePost = (e : React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
-    const newPost : IPost= { id : Number(new Date()) , title , description , category}
+    const newPost : IPost= { id : Number(new Date()) , title , description , category }
     AddNewPost(newPost)
     setTitle("")
     setDescription("")
@@ -25,10 +29,10 @@ const AddPost = () => {
       
   
   return (
-    <div>
+    <div className='addPost-container'>
 
         <h1>Add Post</h1>
-        <div>
+        
           <form onSubmit={(e)=> handlePost(e)}>
             <div className='title'>
               <label>Title</label>
@@ -37,10 +41,12 @@ const AddPost = () => {
 
             <div className='description'>
               <label>Description</label>
-              <textarea value={description} onChange={(e)=> setDescription(e.target.value)}></textarea>
+              <textarea placeholder='Description' value={description} onChange={(e)=> setDescription(e.target.value)}></textarea>
             </div>
 
-            <div>
+
+            <div className='select'>
+              <label>Category</label>
               <select value={category} onChange={(e)=> setCategory(e.target.value)}>
                 <option value={'IT'}>IT</option>
                 <option value={'medical'}>medical</option>
@@ -49,11 +55,11 @@ const AddPost = () => {
             </div>
 
             <div className='buttons'>
-              <button className='create'>create post</button>
-              <button className='cancel' onClick={()=> navigate("/post")}>cancel</button>
+              <button className='create'>Create Post</button>
+              <button className='cancel' onClick={()=> navigate("/post")}>Cancel</button>
             </div>
           </form>
-        </div>
+       
     </div>
   )
 }

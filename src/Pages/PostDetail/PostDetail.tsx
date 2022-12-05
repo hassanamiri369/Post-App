@@ -3,6 +3,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getPostById } from '../../api/api'
 import { IPost, PostContext } from '../../context/postContext'
 
+
+// style
+import "./Style.css"
 const PostDetail = () => {
     
     const {id} = useParams()
@@ -32,21 +35,25 @@ const PostDetail = () => {
     } , [id])
 
     return (
-        <div>
-            id : {id}
-            <p>{postDetail === null && <span>Loading ...</span>}</p>
-            <p>{postDetail === undefined && <span>not found this post</span>}</p>
-            <p>{postDetail?.title}</p>
-            <p>{postDetail?.category}</p>
-            <p>{postDetail?.description}</p>
+        <div className='PostDetail-container'>
+
+            <div className='button-detail'>
+            <button className='goBack' onClick={()=> navigate("/post")}>go back</button>
+            <Link to={"/edit"} state={postDetail}  >Edit</Link>
             <button onClick={()=> {
                 deletePost(Number(id))
                 navigate("/post")
               
             }}>delete</button>
-            <button><Link to={"/edit"} state={postDetail} >Edit</Link></button>
-            <button onClick={()=> navigate("/post")}>go back</button>
-
+            </div>
+            {/* id : {id} */}
+            <p>{postDetail === null && <span>Loading ...</span>}</p>
+            <p>{postDetail === undefined && <span>not found this post</span>}</p>
+            <h1 className='detail-title'>{postDetail?.title}</h1>
+           <div className='categories-title'> <span className='category-title'>{postDetail?.category}</span></div>
+            <p className='description-title'>{postDetail?.description}</p>
+           
+           
         </div>
     )
 }

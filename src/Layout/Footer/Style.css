@@ -1,0 +1,9 @@
+.container-footer{
+    box-shadow:10  10px  10 10px   gray;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    border-top: 1px solid gainsboro;
+    color: gray;
+    font-style: italic;
+}

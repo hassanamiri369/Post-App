@@ -16,17 +16,8 @@ const Header = () => {
         }
     }
 
-
     return (
         <div className='container-header'>
-
-
-
-
-
-
-
-           
             <NavLink style={NavbarLink}  to={'/'}>Home</NavLink>
             <NavLink style={NavbarLink} to={'/post'}>PostList</NavLink>
             <NavLink style={NavbarLink} to={'/addPost'}>Add Post</NavLink>
